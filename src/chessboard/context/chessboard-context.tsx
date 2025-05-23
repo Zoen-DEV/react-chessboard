@@ -41,6 +41,7 @@ type RequiredChessboardProps = Required<ChessboardProps>;
 
 interface ChessboardProviderContext {
   // Props from user
+  tagToDisplay: ChessboardProps["tagToDisplay"];
   allowDragOutsideBoard: RequiredChessboardProps["allowDragOutsideBoard"];
   animationDuration: RequiredChessboardProps["animationDuration"];
   arePiecesDraggable: RequiredChessboardProps["arePiecesDraggable"];
@@ -76,6 +77,8 @@ interface ChessboardProviderContext {
   promotionDialogVariant: RequiredChessboardProps["promotionDialogVariant"];
   showBoardNotation: RequiredChessboardProps["showBoardNotation"];
   snapToCursor: RequiredChessboardProps["snapToCursor"];
+
+  displayedMoveData: ChessboardProps["displayedMoveData"];
 
   // Exported by context
   arrows: Arrow[];
@@ -118,6 +121,7 @@ export const useChessboard = () => useContext(ChessboardContext);
 export const ChessboardProvider = forwardRef(
   (
     {
+      tagToDisplay,
       allowDragOutsideBoard = true,
       animationDuration = 300,
       areArrowsAllowed = true,
@@ -176,6 +180,7 @@ export const ChessboardProvider = forwardRef(
       showBoardNotation = true,
       showPromotionDialog = false,
       snapToCursor = true,
+      displayedMoveData,
     }: ChessboardProviderProps,
     ref
   ) => {
@@ -480,6 +485,7 @@ export const ChessboardProvider = forwardRef(
     }
 
     const ChessboardProviderContextValue: ChessboardProviderContext = {
+      tagToDisplay,
       allowDragOutsideBoard,
       animationDuration,
       arePiecesDraggable,
@@ -541,6 +547,7 @@ export const ChessboardProvider = forwardRef(
       showBoardNotation,
       showPromoteDialog,
       snapToCursor,
+      displayedMoveData,
     };
 
     return (

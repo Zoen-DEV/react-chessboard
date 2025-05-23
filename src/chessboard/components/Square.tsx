@@ -21,6 +21,7 @@ export function Square({
 }: SquareProps) {
   const squareRef = useRef<HTMLElement>(null);
   const {
+    tagToDisplay,
     autoPromoteToQueen,
     boardWidth,
     boardOrientation,
@@ -54,6 +55,7 @@ export function Square({
     setPromoteFromSquare,
     setPromoteToSquare,
     setShowPromoteDialog,
+    displayedMoveData,
   } = useChessboard();
 
   const [{ isOver }, drop] = useDrop(
@@ -188,6 +190,20 @@ export function Square({
         e.preventDefault();
       }}
     >
+      {(displayedMoveData?.fromSquare === square ||
+        displayedMoveData?.toSquare === square) && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            bottom: "0px",
+            left: "0px",
+            right: "0px",
+            backgroundColor: "rgba(155, 199, 0, .41)",
+          }}
+        ></div>
+      )}
+      {tagToDisplay && displayedMoveData?.toSquare === square && tagToDisplay}
       {typeof CustomSquare === "string" ? (
         <CustomSquare
           // Type is too complex to properly evaluate, so ignore this line.

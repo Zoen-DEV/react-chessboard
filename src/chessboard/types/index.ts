@@ -248,6 +248,14 @@ export type ChessboardProps = {
    */
   customSquareStyles?: CustomSquareStyles;
   /**
+   * Data of the move that is displayed in the board.
+   * @default null
+   */
+  displayedMoveData?: {
+    fromSquare: Square;
+    toSquare: Square;
+  } | null;
+  /**
    * Action to take when piece is dropped off the board.
    * @default snapback
    */
@@ -390,6 +398,11 @@ export type ChessboardProps = {
    * @default true
    */
   snapToCursor?: boolean;
+  /**
+   * Tag component of the position to display.
+   * @default undefined
+   */
+  tagToDisplay?: ReactNode;
 };
 
 export type ChessboardDnDProviderProps = {
