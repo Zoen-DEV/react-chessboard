@@ -16,7 +16,6 @@
   },
   "scripts": {
     "build": "set NODE_ENV=production && rm -rf /dist && rollup -c",
-    "build:windows": "cross-env NODE_ENV=production && npx rimraf .\\dist && rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
