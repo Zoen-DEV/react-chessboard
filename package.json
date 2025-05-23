@@ -1,5 +1,5 @@
 {
-  "name": "react-chessboard",
+  "name": "@zoendev/react-chessboard",
   "version": "4.7.3",
   "description": "The React Chessboard Library used at ChessOpenings.co.uk. Inspired and adapted from the unmaintained Chessboard.jsx.",
   "author": "Ryan Gregory <ryangregory.dev@outlook.com>",
