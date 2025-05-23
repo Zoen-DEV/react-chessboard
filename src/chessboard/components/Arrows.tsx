@@ -40,6 +40,9 @@ export const Arrows = () => {
           boardWidth,
           arrowEndField
         );
+
+        console.log({from, to});
+
         let ARROW_LENGTH_REDUCER = boardWidth / 32;
 
         const isArrowActive = i === arrows.length;
