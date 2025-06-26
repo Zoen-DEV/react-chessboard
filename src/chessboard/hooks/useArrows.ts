@@ -49,14 +49,14 @@ export const useArrows = (
 
   const allBoardArrows = [...arrows, ...customArrowsSet];
 
-  const onArrowDrawEnd = (fromSquare: Square, toSquare: Square) => {
+  const onArrowDrawEnd = (fromSquare: Square, toSquare: Square, arrowColor: string) => {
     if (fromSquare === toSquare || !areArrowsAllowed) return;
 
     let arrowsCopy;
     const newArrow: Arrow = [fromSquare, toSquare, customArrowColor];
 
-    const isNewArrowUnique = allBoardArrows.every(([arrowFrom, arrowTo]) => {
-      return !(arrowFrom === fromSquare && arrowTo === toSquare);
+    const isNewArrowUnique = allBoardArrows.every(([arrowFrom, arrowTo, color]) => {
+      return !(arrowFrom === fromSquare && arrowTo === toSquare && color === arrowColor);
     });
 
     // add the newArrow to arrows array if it is unique
@@ -69,6 +69,8 @@ export const useArrows = (
         return !(arrowFrom === fromSquare && arrowTo === toSquare);
       });
     }
+
+    console.log({arrowsCopy})
 
     setNewArrow(undefined);
     setArrows(arrowsCopy);

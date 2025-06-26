@@ -100,7 +100,7 @@ interface ChessboardProviderContext {
   lastPieceColour: string | undefined;
   lastSquareDraggedOver: Square | null;
   newArrow?: Arrow;
-  onArrowDrawEnd: (from: Square, to: Square) => void;
+  onArrowDrawEnd: (from: Square, to: Square, color: string) => void;
   onRightClickDown: (square: Square) => void;
   onRightClickUp: (square: Square) => void;
   positionDifferences: { added: BoardPosition; removed: BoardPosition };
